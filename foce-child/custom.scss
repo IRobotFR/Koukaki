@@ -1,0 +1,576 @@
+:root {
+	--rotate: 20s;
+}
+
+// Titres H2 animation montant retardée
+
+h2 {
+	opacity: 0;
+	transition: opacity 4s;
+	&.active {
+		display: flex;
+		margin-top: 10px;
+		opacity: 1;
+	}
+}
+
+// Animation du hero et descente vers le bas
+
+#titleH2up {
+	position: absolute;
+	&.active {
+		position: relative;
+		animation: fade-in-up 2s 2000ms both;
+	}
+}
+#titleH2up1 {
+	position: absolute;
+	&.active {
+		margin-left: 350px;
+		animation: fade-in-up 2s 3000ms both;
+	}
+}
+#titleH2up2 {
+	&.active {
+		margin-left: 550px;
+		animation: fade-in-up 2s 3700ms both;
+	}
+}
+
+// Faire monter les titres H2 vers le haut
+
+@keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+// Faire apparaître les titres H3
+  
+h3 {
+	opacity: 0;
+	transition: opacity 4s;
+	&.active {
+		opacity: 1;
+	}
+}
+
+// Menu Navigation - Burger
+// Menu Navigation - Burger
+// Menu Navigation - Burger
+
+#site-navigation {
+	position: relative;
+}
+.main-navigation {
+	&.toggled {
+		ul {
+			display: flex !important;
+		}
+	}
+}
+.menuBK__burger {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	justify-content: center;
+	gap: 8px;
+	width: 40px;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	right: 5em;
+	cursor: pointer;
+	.line {
+		height: 5px;
+		background-color: #000;
+		display: block;
+		width: 100%;
+		margin: 0;
+		transition: all .3s ease-in-out;
+	}
+	&.close {
+		.line {
+			&:nth-child(2) {
+				opacity: 0;
+			}
+			&:first-child {
+				transform: rotate(45deg) translate3d(8px, 10px, 0);
+			}
+		}
+		span {
+			&.line {
+				&:last-child {
+					transform: rotate(-45deg) translate3d(8px, -10px, 0);
+				}
+			}
+		}
+	}
+}
+
+// Affichage du contenu et des liens du menu - burger -
+
+.menuBK {
+	font-family: 'Roboto Mono', monospace;
+	font-size: 0.4rem;
+	font-weight: 400;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	overflow: hidden;
+	.menuBK__content {
+		position: relative;
+		width: 100%;
+		height: 91vh;
+		background: #FFF5E9;
+		font-size: 3em;
+		display: none;
+	}
+}
+.menuBK h2,
+.menuBK li > a {
+	font-size: 3.1rem;
+}
+.menuBK__content--logo {
+	margin: 40px;
+	width: 154px;
+	filter: drop-shadow(0px 0px 10px rgba(255, 92, 0, 0.6));
+}
+.menuBK__content {
+	ul {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+		height: 300px;
+		gap: 1em;
+	}
+	li {
+		& > a {
+			&:hover {
+				filter: drop-shadow(0px 0px 5px #ff5c00);
+			}
+		}
+	}
+	&::after {
+		content: url("./assets/images/orchid.png");
+		position: absolute;
+		left: -4em;
+		top: 3em;
+		transform: scale(0.8);
+		animation: rotate-flower var(--rotate) linear infinite;
+	}
+}
+.menuBK__content--footer {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 40px;
+	&::before {
+		content: url("./assets/images/Orenjiiro-1.png");
+		position: absolute;
+		right: 30em;
+		bottom: 0;
+		animation: float 5s 300ms infinite ease-in-out;
+	}
+	&::after {
+		content: url("./assets/images/hibiscus_footer.png");
+		position: absolute;
+		left: 500px;
+		bottom: -23.5em;
+		animation: rotate-flower var(--rotate) linear infinite;
+	}
+}
+.menuBK__content--story {
+	&::before {
+		content: url("./assets/images/Kawaneko.png");
+		position: absolute;
+		right: 20em;
+		bottom: -3em;
+		animation: float 7s 100ms infinite ease-in-out;
+	}
+	&::after {
+		content: url("./assets/images/Sunflower.png");
+		position: absolute;
+		left: 24em;
+		bottom: 0em;
+		animation: rotate-flower var(--rotate) linear infinite;
+	}
+}
+.menuBK__content--place {
+	&::before {
+		content: url("./assets/images/Jaakuna-1.png");
+		position: absolute;
+		left: 20em;
+		top: -4em;
+		animation: float 6s 200ms infinite ease-in-out;
+	}
+	&::after {
+		content: url("./assets/images/flower.png");
+		position: absolute;
+		right: 28em;
+		top: -2em;
+		transform: scale(0.5);
+		animation: rotate-flower var(--rotate) linear infinite;
+	}
+}
+.menuBK__content--characters {
+	&::after {
+		content: url("./assets/images/random_flower.png");
+		position: absolute;
+		left: 54em;
+		top: -2em;
+		transform: scale(0.3);
+		animation: rotate-flower var(--rotate) linear infinite;
+	}
+}
+
+@media screen and (max-width: 768px) {
+    .main-navigation {
+      height: 80px;
+    }
+}
+  
+// Animation du hero et descente vers le bas
+#bannerid {
+	animation: move-down 2s 300ms both;
+	.banner__background {
+		position: absolute;
+		max-width: 1440px;
+		max-height: 806px;
+		z-index: -2;
+	}
+	.banner__video {
+		position: absolute;
+		min-width: 1440px;
+		z-index: 1;
+	}
+	.logo {
+		width: 50%;
+		margin-top: -10%;
+		z-index: 2;
+		animation: move-up 2s 300ms both float 6s 2s infinite ease-in-out;
+	}
+}
+.banner__logo {
+	position: sticky;
+	top: 40px;
+	z-index: 10;
+	opacity: 1;
+	animation: move-up 2s 300ms both, float 6s 2s infinite ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+
+    .banner {
+      min-height: 206px !important;
+    }
+    #bannerid .banner__video {
+      display: none;
+      max-height: 206px;
+    }
+  }
+
+// Section "Story" (Histoire) et (Characters ou personnages)
+
+.story {
+	#place {
+		display: flex;
+		background-image: url("./assets/images/Studio_Koukaki-image.png");
+		width: 100%;
+		min-height: 699px;
+		background-size: cover;
+	}
+	#characters {
+		position: relative;
+		margin-bottom: 0 !important;
+		z-index: 20;
+		div {
+			flex: none;
+		}
+	}
+}
+
+#characters {
+	h3 {
+		position: absolute;
+		background-image: url("./assets/images/orange_characters_bg.png");
+	}
+}
+
+// Section animation Swiper JS de "Personnages"
+
+.swiper-wrapper {
+	margin-top: 10em;
+	figcaption {
+		text-align: center;
+	}
+}
+
+@media screen and (max-width: 768px) {
+
+    .swiper {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+      .swiper-wrapper {
+      margin-top: 5em;
+    }
+  }
+
+// Ajout nouvelle section nomination aux oscars
+
+.nomination {
+	position: relative;
+	padding: 150px 0 50px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 40px 0;
+	justify-content: center;
+	align-items: center;
+	img {
+		height: 100%;
+	}
+}
+.nomination__title {
+	position: relative;
+	h3 {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		line-height: 3.2rem;
+		text-align: left;
+	}
+}
+
+// Animation (apparition) des différentes sections de la page
+
+#story {
+	opacity: 0;
+	&.active {
+		opacity: 1;
+		animation: move-up 2s 100ms both;
+	}
+}
+#characters {
+	opacity: 0;
+	&.active {
+		opacity: 1;
+		animation: move-up 2s 100ms both;
+	}
+}
+#place {
+	opacity: 0;
+	&.active {
+		opacity: 1;
+		animation: move-up 2s 100ms both;
+	}
+}
+#studio {
+	opacity: 0;
+	&.active {
+		opacity: 1;
+		animation: move-up 2s 300ms both;
+	}
+}
+#nomination {
+	opacity: 0;
+	&.active {
+		opacity: 1;
+		animation: move-up 2s 300ms both;
+	}
+}
+
+// Pour faire monter les éléments
+
+.move-up {
+    animation: move-up 2s 300ms both;
+  }
+
+// Pour faire descendre les éléments
+@keyframes move-down {
+    0% {
+      transform: translateY(-300px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      visibility: visible;
+    }
+  }
+ 
+// Pour faire apparaitre les éléments en montant et 
+// avec augmentatation de l'opacité
+
+@keyframes move-up {
+    0% {
+      transform: translateY(600px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+ 
+// Pour faire flotter les éléments
+
+@keyframes float {
+    0% {
+      transform: translate3d(6px,6px,0);
+    }
+    12% {
+      transform: translate3d(0px,6px,0);
+    }
+    24% {
+      transform: translate3d(6px,-4px,0);
+    }
+    36% {
+      transform: translate3d(6px,0px,0);
+    }
+    48% {
+      transform: translate3d(-4px,-6px,0);
+    }
+    60% {
+      transform: translate3d(0px,-4px,0);
+    }
+    72% {
+      transform: translate3d(-8px,6px,0);
+    }
+    84% {
+      transform: translate3d(-4px,0px,0);
+    }
+    100% {
+      transform: translate3d(6px,6px,0);
+    }
+  }
+
+// Ajout pour les nuages qui se déplacent
+
+#place {
+	.bigCloud {
+		width: 316px;
+		height: 122px;
+		position: absolute;
+		top: 50px;
+		left: 1680px;
+		filter: blur(10px);
+		z-index: 1;
+	}
+	.littleCloud {
+		width: 142px;
+		height: 55px;
+		top: 150px;
+		left: 1450px;
+		position: absolute;
+		filter: blur(12px);
+	}
+}
+
+// Rotation des fleurs
+
+.story__article::after,
+#studio h2::before,
+.story h2::after,
+#studio h2::after,
+.site-footer::before,
+.site-footer::after,
+.nomination::before,
+.nomination::after,
+.site-footer ul::after {
+  animation: rotate-flower var(--rotate) linear infinite;
+}
+
+@keyframes rotate-flower {
+    from {
+        transform: rotate(1deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+  }
+
+// Ajustements pour faire tourner les fleurs en rond
+
+.story h2::after,
+.site-footer::before {
+      width: 154px;
+      height: 154px;
+  }
+#studio {
+      h2 {
+          &::before {
+              width: 203px;
+              height: 203px;
+          }
+          &::after {
+              width: 109px;
+              height: 109px;
+          }
+      }
+  }
+  .site-footer {
+      &::after {
+          width: 173px;
+          height: 173px;
+      }
+  }
+  .story__article {
+      &::after {
+          width: 188px;
+          height: 188px;
+      }
+  }
+ 
+// Adaptation pour les différents écrans
+
+@media screen and (max-width: 768px) {
+
+    #titleH2up1.active {
+      margin-left: -37px;
+    }
+    #titleH2up2.active {
+      margin-left: 105px;
+    }
+  }
+
+@media screen and (min-width: 769px) and (max-width: 1030px) {
+
+    #titleH2up1.active {
+      margin-left: 100px;
+    }
+    #titleH2up2.active {
+      margin-left: 30px;
+    }
+  }
+ 
+@media screen and (min-width: 1031px) and (max-width: 1230px) {
+
+    #titleH2up1.active {
+      margin-left: 230px;
+    }
+    #titleH2up2.active {
+      margin-left: 450px;
+    }
+  }
+  
+@media screen and (max-width: 768px) {
+
+    h3 {
+      font-size: 1.2em;
+      line-height: 1.5rem !important;
+      margin-left: 15px;
+    }
+    .nomination {
+      padding-top: 50px !important;
+      padding-bottom: 0px !important;
+    }
+  }
+  
